@@ -1,0 +1,32 @@
+* build 방법
+- 해당 프로젝트에서 git bash 열기
+-- 윈도우의 경우 bat 파일을 돌려도 되지만, 나의 경우엔 해당 안됐음
+- ./gradlew build 명령어 입력
+- libs 경로가서 빌드된 jar 파일 확인
+- 이 때, 파일이 2개 생김
+hello-spring-0.0.1-SNAPSHOT.jar <- 실행 가능한 JAR (✅ 서버에 올라가는 파일)
+-- java -jar hello-spring-0.0.1-SNAPSHOT.jar 이렇게 실행하면 파일 빌드되서 브라우저 접속 가능
+
+hello-spring-0.0.1-SNAPSHOT-plain.jar (🚫 실행 불가능한 파일)
+-- 순수 Java 코드만 담긴 JAR 파일
+-- .class 파일만 포함됨 (라이브러리 없음)
+-- 실행하면 안 되고, 라이브러리로 참조용으로 쓰는 용도
+
+🤔 왜 두 개를 생성하는가?
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.0'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+이렇게 설정되어 있을 경우 파일 2개 생성함
+
+🔧 원하면 plain JAR 생성을 막을 수도 있음
+jar {
+    enabled = false
+}
+
+이렇게 하면 -plain.jar는 안생김
+
+*** 참고 ***
+- ./gradlew clean 하면 지워짐

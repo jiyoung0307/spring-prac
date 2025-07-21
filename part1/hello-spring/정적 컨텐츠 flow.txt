@@ -1,0 +1,7 @@
+** 정적 컨텐츠 flow
+1. 웹브라우저에서 localhost:8080/hello-static.html 접속하면 내장 톰캣에서 요청 받음
+2. 톰캣에서는 요청을 스프링에 넘김
+3. 스프링에서는 컨트롤러쪽에 hello-static이 있는지 먼저 확인(컨트롤러가 우선순위를 가짐)
+4. 그런데 hello-static 이라는 컨트롤러는 없음
+5. 스프링 부트가 내부에 있는 resources 안에 있는 hello-static.html을 찾음
+6. 있을 경우 반환

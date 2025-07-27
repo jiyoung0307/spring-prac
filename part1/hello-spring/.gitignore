@@ -17,6 +17,8 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
+**/정적 컨텐츠 flow.txt
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
